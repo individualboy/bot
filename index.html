@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Counseling ChatBot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            background-image: url('bot.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .chatbot-container {
+            max-width: 600px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .chatbot-container h2,
+        h3 {
+            text-align: center;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        .chat-history {
+            height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .chat-history p {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .chat-history p:nth-child(odd) {
+            background-color: #e0f7fa;
+            align-self: flex-start;
+        }
+
+        .chat-history p:nth-child(even) {
+            background-color: #ffecb3;
+            align-self: flex-end;
+        }
+
+        .user-input-container {
+            display: flex;
+        }
+
+        .user-input {
+            flex-grow: 1;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 10px 0 0 10px;
+            outline: none;
+        }
+
+        .send-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 0 10px 10px 0;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .send-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="chatbot-container">
+        <h2>Career Counseling Chatbot</h2>
+        <h3>By Ansh Kumar Mishra</h3>
+        <div class="chat-history" id="chat-history"></div>
+        <div class="user-input-container">
+            <input type="text" id="user-input" class="user-input" placeholder="Type your question...">
+            <button type="button" id="send-button" class="send-button" onclick="sendMessage()">Ask</button>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            var userInput = document.getElementById('user-input').value.trim().toLowerCase();
+            var chatHistory = document.getElementById('chat-history');
+
+            // Clear user input
+            document.getElementById('user-input').value = '';
+
+            // Display user message
+            var userMessage = document.createElement('p');
+            userMessage.textContent = 'You: ' + userInput;
+            chatHistory.appendChild(userMessage);
+
+            // Get and display bot response
+            var botResponse = getBotResponse(userInput);
+            var botMessage = document.createElement('p');
+            botMessage.textContent = 'Bot: ' + botResponse;
+            chatHistory.appendChild(botMessage);
+
+            // Scroll to bottom of chat history
+            chatHistory.scrollTop = chatHistory.scrollHeight;
+        }
+
+        function getBotResponse(userInput) {
+            var responses = {
+                "hi": "Hello!",
+                "how are you": "I'm good, thank you!",
+                "bye": "Goodbye!",
+                "default": "I'm sorry, I don't understand that.",
+                "what is career counseling": "Career counseling is a type of advice-giving and support provided by career counselors to their clients, to help the clients manage their journey through life, learning and work changes (career).",
+                "who am i": "You are my client.",
+                "what is a career counseling test": "Tests form a large part of any career assessment. They allow for the personality traits of individuals to be unveiled, alongside skills, strengths, values, interests, emotional intelligence, motivations, and goals (Maree, 2015). There are many career counseling tests and questionnaires you can use with your students and clients.",
+                "give me some suggestions for my career": "You can be the following: (a) Pilot, (b) YouTuber, (c) Doctor, etc.",
+                "suggest me some high paying jobs": "Some of them are: 1. Data Scientist, 2. Artificial Intelligence (AI) Engineer, 3. Blockchain Developer, 4. Investment Banker, etc.",
+                "i want to be a successful person": "That's good.",
+                "who created you": "I have been created by Ansh of class VIII.",
+                "who are you": "I am a Career Counseling Chatbot.",
+                "which class are you in": "I am a ChatBot, I do not have any class.",
+                "which stream do you prefer": "As I am a ChatBot, I would prefer Computer Science.",
+                "which stream have you chosen": "I am a ChatBot, I do not have any stream.",
+                "how much percentage should be there for choosing computer science": "80-90% and above.",
+                "how much range of marks are needed for choosing English, Social Science, Hindi": "35% and above.",
+                "job profiles i can get": "(a) Entrepreneur, (b) Defence personnel, (c) Central govt. employee, (d) Private sector, etc.",
+                "what kind of learner are you": "Visual.",
+                "why is career counseling important": "Career counseling helps individuals clarify their career goals, explore various career options, and make informed decisions based on their strengths and aspirations. It can also provide insights into career trends, job market demands, and necessary skills for different professions.",
+                "how can career counseling help in choosing a career path": "Career counseling uses assessments, discussions, and exploration of interests and skills to match individuals with suitable career options. Counselors provide information about different professions, industry trends, educational requirements, and career growth opportunities, empowering individuals to make informed decisions.",
+                "how can someone prepare for a career counseling session": "Before a career counseling session, individuals can reflect on their interests, strengths, values, and career aspirations. They can also prepare questions about specific careers or concerns they have regarding their career path. Bringing relevant documents such as resumes, academic transcripts, or job descriptions can also be helpful.",
+                "what are some potential career outcomes of career counseling": "Career counseling can help individuals find clarity in their career goals, choose suitable majors or educational programs, identify potential career paths, improve job search strategies, develop skills needed for career advancement, and overcome career-related challenges or barriers.",
+                "can career counseling help with job search strategies": "Yes, career counseling can assist individuals in developing effective job search strategies. This includes resume writing, interview preparation, networking tips, and understanding the job market. Career counselors provide guidance on where to look for job opportunities and how to effectively showcase one's skills and experience to potential employers.",
+                "how long does career counseling typically last": "The duration of career counseling varies depending on individual needs and goals. Some people may benefit from a single session focused on a specific issue, while others may engage in multiple sessions over weeks or months to explore career options, develop skills, or navigate career transitions.",
+                "what qualifications should one look for in a career counselor": "Psychology, or career development. Professional certifications such as National Certified Counselor (NCC) or Certified Career Counselor (CCC) can indicate specialized training in career counseling. Additionally, experience working with individuals in similar career stages or industries can be beneficial.",
+                "how does career counseling address work-life balance": "Career counseling can help individuals evaluate their priorities and values related to work-life balance. Counselors may explore options such as flexible work arrangements, time management strategies, or career paths that better align with personal and family goals.",
+                "what ethical considerations are important in career counseling": "Ethical considerations in career counseling include maintaining client confidentiality, respecting client autonomy and decisions, providing accurate information about career options, avoiding conflicts of interest, and adhering to professional standards and codes of ethics established by counseling associations.",
+                "how can individuals with disabilities benefit from career counseling": "Career counseling for individuals with disabilities focuses on exploring career options that accommodate their unique abilities and challenges. Counselors may provide resources on disability rights, reasonable accommodations in the workplace, and strategies for advocating for oneself during the job search and career development process.",
+                "what role does networking play in career counseling": "Networking is crucial in career counseling as it helps individuals build professional relationships, gather information about career opportunities, and access hidden job markets. Career counselors can provide guidance on effective networking strategies, including utilizing social media platforms and attending industry events.",
+                "what should i consider when choosing a career": "When choosing a career, consider your interests, skills, values, and long-term goals. Research different fields, talk to professionals, and think about what you enjoy and excel at.",
+                "how can i improve my resume": "To improve your resume, highlight your accomplishments and skills clearly, tailor it to the job you're applying for, and use action verbs to describe your responsibilities and achievements.",
+                "what are some tips for a successful job interview": "Be prepared to answer common interview questions, research the company, dress appropriately, and practice your responses. Show enthusiasm and ask insightful questions about the role and company.",
+                "how do i find a mentor in my field": "You can find a mentor by networking within your industry, attending professional events, joining relevant associations, and reaching out to professionals whose work you admire. Don’t be afraid to ask for guidance.",
+                "what are some good career development strategies": "Consider setting short and long-term goals, seeking feedback, continuing education, and building a strong professional network. Stay updated with industry trends and look for opportunities to gain new skills.",
+                "how do i balance work and personal life": "Establish clear boundaries between work and personal time, prioritize tasks, delegate when possible, and make time for activities you enjoy. Regularly assess and adjust your schedule to maintain balance.",
+                "what should i do if i'm unhappy with my current job": "Assess what specifically makes you unhappy, whether it's the role, company culture, or work environment. Consider discussing your concerns with your manager, seeking new opportunities, or exploring career change options.",
+                "how can i build a professional network": "Attend industry events, join professional organizations, connect on LinkedIn, and engage in conversations within your field. Offer support to others and be proactive in reaching out to build meaningful relationships.",
+                "what are some ways to increase my job satisfactio": "Identify what aspects of your job you enjoy and seek more opportunities in those areas. Set personal goals, seek feedback, and consider professional development to enhance your role.",
+                "how can i transition to a new career": "Research your desired field, acquire necessary skills or certifications, and network with professionals in that area. Tailor your resume and cover letter to highlight transferable skills and seek opportunities that align with your new career goals.",
+                "what should i include in a cover letter": "in a cover letter, include an introduction stating the position you're applying for, highlight your relevant skills and experiences, explain why you're interested in the role and the company, and conclude with a strong closing statement.",
+                "how can i make my linkedin profile stand out": "make your linkedin profile stand out by having a professional photo, writing a compelling headline, summarizing your skills and experiences clearly, and regularly updating your profile with new achievements and endorsements.",
+                "what are some common mistakes to avoid in a job interview": "common mistakes include arriving late, not researching the company, speaking negatively about previous employers, not asking questions, and failing to provide specific examples of your accomplishments.",
+                "how do i know if a career change is right for me": "to determine if a career change is right, evaluate your current job satisfaction, interests, and skills. research potential new careers, seek advice from mentors or career counselors, and consider any additional training you might need.",
+                "what can i do to advance in my current job": "to advance in your current job, take on additional responsibilities, seek feedback, develop new skills, and demonstrate a strong work ethic. also, communicate your career goals with your supervisor and look for opportunities for growth.",
+                "how do i handle job search rejection": "handling job search rejection can be tough, but try to stay positive and use the experience as a learning opportunity. seek feedback if possible, refine your approach, and keep applying to positions that align with your goals.",
+                "what are the benefits of networking for my career": "networking can provide job leads, offer professional advice, open up new opportunities, and help you stay informed about industry trends. building relationships with others in your field can also lead to valuable connections and mentorship.",
+                "how can i negotiate a better salary": "to negotiate a better salary, research industry standards, clearly articulate your value and achievements, and be prepared to discuss how your skills benefit the company. approach the conversation professionally and be open to compromise.",
+                "what should i do if i’m unsure about my career path": "if you're unsure about your career path, take time to explore different fields through internships, informational interviews, or part-time work. consider talking to a career counselor or taking career assessments to gain more clarity.",
+                "how do i set realistic career goals": "set realistic career goals by making them specific, measurable, achievable, relevant, and time-bound (SMART). break them down into smaller steps and regularly review your progress to stay on track and adjust as needed.",
+                "what is the purpose of this chatbot":"To resolve initial queries related to career counselling To give a generic idea about career counselling Start the journey of career exploration Building on curiosity  Self-awareness SWOT analysis by self Eliminating concern of low motivation/career confusion sense of purpose with Conversational AI.",
+                "what are advantages":"remembering what you both were talking about before having fun chatting with Woebot Encourages people to examine how they react to challenging situations. feel like you are talking every person wants to be heard and treated individually",
+                "what is the best career for my child":"Selecting a path with no heart will make every step a struggle, while choosing a path with a heart will allow for a lighter journey. Come and share more details.",
+                "how to choose from  different career options":"Define your career objectives, Create long-term plans, Learn about your type of personality, Compare your educational requirements to job requirements, Evaluate your skillset, Note your interests, Be aware of your main values, do an internship.",
+                "how can i assess that this is the best career for my child.":"Help them follow their passion, do your on ground search regarding the child's passion and provide valuable suggestions through proper communication.",
+                
+                
+                
+                
+                // Add more responses as needed
+            };
+
+            return responses[userInput] || responses["default"];
+        }
+    </script>
+
+</body>
+
+</html>
