@@ -105,11 +105,11 @@
 
     <script>
         function sendMessage() {
-            var userinput = document.getElementByid('user-input').value.trim().toLowerCase();
-            var chatHistory = document.getElementByid('chat-history');
+            var userinput = document.getElementById('user-input').value.trim().toLowerCase();
+            var chatHistory = document.getElementById('chat-history');
 
             // Clear user input
-            document.getElementByid('user-input').value = '';
+            document.getElementById('user-input').value = '';
 
             // Display user message
             var userMessage = document.createElement('p');
