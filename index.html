@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Counseling ChatBot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+            background-color: aquamarine;
+            width: 100%;
+            height: 100vh;
+            /* Full viewport height */
+            background-image: url('b2.jpg');
+            background-size: cover;
+            /* Ensures the image covers the entire container */
+            background-position: center;
+            /* Centers the image */
+            background-repeat: no-repeat;
+            /* Prevents repeating the image */
+            display: flex;
+            align-items: center;
+            /* Center the chatbot vertically */
+            justify-content: center;
+            /* Center the chatbot horizontally */
+        }
+
+        .chatbot-container {
+            max-width: 600px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .chatbot-container h2,
+        h3 {
+            text-align: center;
+            color: #2e6eb6;
+            margin-bottom: 20px;
+        }
+
+        .chat-history {
+            height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .chat-history p {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .chat-history p:nth-child(odd) {
+            background-color: #e0f7fa;
+            align-self: flex-start;
+        }
+
+        .chat-history p:nth-child(even) {
+            background-color: #ffecb3;
+            align-self: flex-end;
+        }
+
+        .user-input-container {
+            display: flex;
+        }
+
+        .user-input {
+            flex-grow: 1;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 10px 0 0 10px;
+            outline: none;
+        }
+
+        .send-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 0 10px 10px 0;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .send-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="chatbot-container">
+        <h2>Career Counseling Chatbot</h2>
+        <h3>By Ansh Kumar Mishra</h3>
+        <div class="chat-history" id="chat-history"></div>
+        <div class="user-input-container">
+            <input type="text" id="user-input" class="user-input" placeholder="Type your question...">
+            <button type="button" id="send-button" class="send-button" onclick="sendMessage()">Ask</button>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            var userinput = document.getElementById('user-input').value.trim().toLowerCase();
+            var chatHistory = document.getElementById('chat-history');
+
+            // Clear user input
+            document.getElementById('user-input').value = '';
+
+            // Display user message
+            var userMessage = document.createElement('p');
+            userMessage.textContent = 'You: ' + userinput;
+            chatHistory.appendChild(userMessage);
+
+            // Get and display bot response
+            var botResponse = getBotResponse(userinput);
+            var botMessage = document.createElement('p');
+            botMessage.textContent = 'Bot: ' + botResponse;
+            chatHistory.appendChild(botMessage);
+
+            // Scroll to bottom of chat history
+            chatHistory.scrollTop = chatHistory.scrollHeight;
+        }
+
+        function getBotResponse(userinput) {
+            var responses = {
+                "hi": "Hello!",
+                "who created you": "I had been created by Ansh of Class 8A.",
+                "how are you": "i'm good, thank you!",
+                "bye": "Goodbye!",
+                "default": "i'm sorry, i don't understand that.",
+                "what is the purpose of this chatbot": "To resolve initial queries related to career counseling , To give a generic idea about career counseling , Start the journey of career exploration , Building on curiosity , Self-awareness , SWOT analysis by self , Eliminating concern of low motivation/career confusion , Sense of purpose with Conversational Ai.",
+                "what are the advantages of this chatbot": "Remembering what you both were talking about before , Having fun chatting with Woebot , Encourages people to examine how they react to challenging situations , Feel like you are talking , Every person wants to be heard and treated individually ",
+                "what is career counseling": "career counseling is that it is a systematic process designed to help people search and identify the right professional path.",
+                "why do i need career counseling": "helps provide good advice about different industries and careers.",
+                "what is aptitude": "it is the capacity to acquire competence or skill through training.",
+                "how do i develop my strengths": "By setting goals and achieving intrinsic motivation.",
+                "what is the scope for my child": "in the current scenario there are numerous scope available to each and everyone, just have to identify the right path.",
+                "how do i work upon my weaknesses": "everyone has some or the other weakness, but we should not let them hinder our growth. Just accept your weakness and work upon it to find alternatives.",
+                "why is their unemployment in  youth": "Could be due to various reasons like skill mismatch, lack of vocational training, decent work deficit etc.",
+                "what are the latest trends in career": "Ai, Diversity inclusion, automation etc",
+                "what Kind of Career does my subject  combinations prepare me  for": "depends on which subject you are most intrigued by and what are the career options available in that. Do you want to explore further.",
+                "what skills  are essential for todays job industry": "Some skills are inborn whereas some can be  developed, in todays job industry recruiters prefer communication skill, people who are self motivated, know their job really well, problem solvers and those who can adapt to any situation.",
+                "what kind of job/career will suit my personality": "it depends on what is your aptitude, interests and personality traits. Psychometric testing can tell you what skills you have, so you can decide further.",
+                "how is my aptitude and interest correlated": "aptitude will tell you what skills you possess which can be improved upon by appropriate training and interest will tell you how you can put those skills in use for personal career growth.",
+                "what are the areas  my child  can opt for": "Heart surgeon, computer engineer, architect, bank manager, health and wellbeing officer, central government employee anything that is in line with your childs aptitude and interests.",
+                "what is employability": "Skills and abilities that allow you to be employed for life.",
+                "what are employability skills": "job based specific skills, traits, characteristics one should have to become employed",
+                "how can i be different from my contenders": "qualities you posses that make you stand out in the crowd, that makes you special and unique. Everyone has special qualities that make him/her different from the crowd, a counselor can help you identify and build upon you special qualities and help you make them your most priced assets.",
+                "how do i manage time for upcoming competitive exams": "setting priorities and removing distractions.",
+                "what do interviewers ask": "Interviewers typically ask a variety of questions to assess your skills, experience, and fit for the position.",
+                "how do i prepare for interviews": "self awareness involving SWOT analysis of self, projecting your weakness as something you are working on and improving upon. in-depth knowledge about you field of interest.",
+                "what should i focus upon to achieve my goal": "focus upon your motivations, mindset etc",
+                "what are some prospective career paths that  go with my interests and values": "Heart surgeon, computer engineer, architect, bank manager, health and wellbeing officer, central government employee anything that is in line with your childs aptitude and interests.",
+                "what are job search resources": "They are platforms which bring all the recruiters and workers on a common platform like Linkedin, indeed, Alumni etc ",
+                "how can i get first hand knowledge of my career": "By talking to a person already in the field. counselor can provide you orientation about the field.",
+                "balance my career goals with personal interests": "You’ll be able to learn at your own pace from anywhere with an internet connection and gain hands-on experience working with the skills you’re learning.",
+                "some options for further education or training to enhance my career prospects": "Further education represents a significant investment in your personal and economic future, offering the necessary skills and qualifications to thrive in a competitive job market.",
+                "earning potential and negotiate salary": "Employment Opportunities: Further education often leads to improved employability, giving you access to a wider range of job openings.",
+                "what happens in career counseling": " Career counseling the goal of assisting people in making adequately informed professional decisions.",
+                "do my child have to appear for test": "To get a holistic idea about his/her development your child might need to undergo a psychometric test, which are normal paper pencil test and needs no prior learning.",
+                "why not subject teacher tell about career": "Subject teachers definitely can help a child regarding his/her career decisions but it becomes subject specific as the teachers is an expert in their own subject. A career counselor has information of all the careers. ",
+                "how genuine is career counseling": "certified career counselors provide one-on-one sessions that are customized to your specific requirements, whether you are a student or adult. it is a supportive process to push ones interests and aptitude in the right direction.",
+                "what are career search process": " career counseling is that it is a systematic process designed to help people search and identify the right professional path.",
+                "do i pursue my own interest or choose my parents interest ": "Choose a career that aligns with your own interest and skills. Take help and support from parents.",
+                "what can i do if i take up math's/english/physics/chemistry/psychology etc.": "Government, Finance, foreign ministry, interpreter, iSRO to name a few. Career counselor will be providing information in detail after complete assessment.",
+                // Add more responses as needed
+            };
+
+            return responses[userinput] || responses["default"];
+        }
+    </script>
+
+</body>
+
+</html>
