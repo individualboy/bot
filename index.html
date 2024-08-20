@@ -12,12 +12,24 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
             background-color: #f0f0f0;
-            background-image: url('bot.png');
-            background-repeat: no-repeat;
+            margin: 0;
+            background-color: aquamarine;
+            width: 100%;
+            height: 100vh;
+            /* Full viewport height */
+            background-image: url('b2.jpg');
             background-size: cover;
+            /* Ensures the image covers the entire container */
             background-position: center;
+            /* Centers the image */
+            background-repeat: no-repeat;
+            /* Prevents repeating the image */
+            display: flex;
+            align-items: center;
+            /* Center the chatbot vertically */
+            justify-content: center;
+            /* Center the chatbot horizontally */
         }
 
         .chatbot-container {
@@ -32,7 +44,7 @@
         .chatbot-container h2,
         h3 {
             text-align: center;
-            color: #4CAF50;
+            color: #2e6eb6;
             margin-bottom: 20px;
         }
 
@@ -129,7 +141,7 @@
         function getBotResponse(userinput) {
             var responses = {
                 "hi": "Hello!",
-                "who created you":"I had been created by Ansh of Class 8A.",
+                "who created you": "I had been created by Ansh of Class 8A.",
                 "how are you": "i'm good, thank you!",
                 "bye": "Goodbye!",
                 "default": "i'm sorry, i don't understand that.",
