@@ -133,7 +133,6 @@
             userMessage.textContent = 'You: ' + userInput;
             chatHistory.appendChild(userMessage);
 
-
             // Show typing indicator
             const typingIndicator = document.createElement('p');
             typingIndicator.className = 'typing-indicator';
@@ -150,11 +149,11 @@
                 const botMessage = document.createElement('p');
                 botMessage.className = 'bot';
                 botMessage.textContent = 'Bot: ' + botResponse;
-                chatHistory.appendChild(botMessage);;
+                chatHistory.appendChild(botMessage);
 
                 // Scroll to bottom of chat history
                 chatHistory.scrollTop = chatHistory.scrollHeight;
-            }, 1000); // Adjust typing delay as need
+            }, 1000); // Adjust typing delay as needed
         }
 
         function getBotResponse(userinput) {
