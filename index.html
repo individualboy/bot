@@ -1,13 +1,13 @@
-<!DOCTYPE html>
+<!dOctYPe html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UtF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>APS CareerGuide</title>
+    <title>aPs careerGuide</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -20,16 +20,16 @@
             /* Full viewport height */
             background-image: url('b3.jpg');
             background-size: cover;
-            /* Ensures the image covers the entire container */
+            /* ensures the image covers the entire container */
             background-position: center;
-            /* Centers the image */
+            /* centers the image */
             background-repeat: no-repeat;
             /* Prevents repeating the image */
             display: flex;
             align-items: center;
-            /* Center the chatbot vertically */
+            /* center the chatbot vertically */
             justify-content: center;
-            /* Center the chatbot horizontally */
+            /* center the chatbot horizontally */
         }
 
         .chatbot-container {
@@ -93,7 +93,7 @@
         .send-button {
             padding: 10px 20px;
             font-size: 16px;
-            background-color: #4CAF50;
+            background-color: #4caF50;
             color: white;
             border: none;
             border-radius: 0 10px 10px 0;
@@ -109,111 +109,111 @@
 
 <body>
     <div class="chatbot-container">
-        <h2>APS CareerGuide</h2>
+        <h2>aPs careerGuide</h2>
         <div class="chat-history" id="chat-history"></div>
         <div class="user-input-container">
-            <input type="text" id="user-input" class="user-input" placeholder="Type your question...">
-            <button type="button" id="send-button" class="send-button" onclick="sendMessage()">Ask</button>
+            <input type="text" id="user-input" class="user-input" placeholder="type your question...">
+            <button type="button" id="send-button" class="send-button" onclick="sendMessage()">ask</button>
         </div>
     </div>
 
     <script>
-        alert("Welcome to Career counseling Chatbot!\nI'm here to help you explore your career options and answer any questions you may have. What's on your mind today?")
+        alert("welcome to career counseling chatbot!\ni'm here to help you explore your career options and answer any questions you may have. what's on your mind today?")
         function sendMessage() {
-            var userinput = document.getElementById('user-input').value.trim().toLowerCase();
-            var chatHistory = document.getElementById('chat-history');
+            var userinput = document.getelementByid('user-input').value.trim().toLowercase();
+            var chathistory = document.getelementByid('chat-history');
 
-            // Clear user input
-            document.getElementById('user-input').value = '';
+            // clear user input
+            document.getelementByid('user-input').value = '';
 
-            // Display user message
-            var userMessage = document.createElement('p');
-            userMessage.textContent = 'You: ' + userinput;
-            chatHistory.appendChild(userMessage);
+            // display user message
+            var userMessage = document.createelement('p');
+            userMessage.textcontent = 'You: ' + userinput;
+            chathistory.appendchild(userMessage);
 
             // Get and display bot response
             var botResponse = getBotResponse(userinput);
-            var botMessage = document.createElement('p');
-            botMessage.textContent = 'Bot: ' + botResponse;
-            chatHistory.appendChild(botMessage);
+            var botMessage = document.createelement('p');
+            botMessage.textcontent = 'Bot: ' + botResponse;
+            chathistory.appendchild(botMessage);
 
-            // Scroll to bottom of chat history
-            chatHistory.scrollTop = chatHistory.scrollHeight;
+            // scroll to bottom of chat history
+            chathistory.scrolltop = chathistory.scrollheight;
         }
 
         function getBotResponse(userinput) {
             var responses = {
-                "hi": "Hello!",
-                "who created you":"I had been created by Ansh of Class 8A",
+                "hi": "hello!",
+                "who created you": "i had been created by ansh of class 8a",
                 "how are you": "i'm good, thank you!",
                 "bye": "Goodbye!",
                 "default": "can you please rephrase your Query...",
-                "what is the purpose of this chatbot": "To resolve initial queries related to career counseling , To give a generic idea about career counseling , Start the journey of career exploration , Building on curiosity , Self-awareness , SWOT analysis by self , Eliminating concern of low motivation/career confusion , Sense of purpose with Conversational Ai.",
-                "what are the advantages of this chatbot": "Remembering what you both were talking about before , Having fun chatting with Woebot , Encourages people to examine how they react to challenging situations , Feel like you are talking , Every person wants to be heard and treated individually ",
+                "what is the purpose of this chatbot": "to resolve initial queries related to career counseling , to give a generic idea about career counseling , start the journey of career exploration , Building on curiosity , self-awareness , swOt analysis by self , eliminating concern of low motivation/career confusion , sense of purpose with conversational ai.",
+                "what are the advantages of this chatbot": "Remembering what you both were talking about before , having fun chatting with woebot , encourages people to examine how they react to challenging situations , Feel like you are talking , every person wants to be heard and treated individually ",
                 "what is career counseling": "career counseling is that it is a systematic process designed to help people search and identify the right professional path.",
                 "why do i need career counseling": "it helps provide good advice about different industries and careers.",
                 "what is aptitude": "it is the capacity to acquire competence or skill through training.",
                 "how do i develop my strengths": "By setting goals and achieving intrinsic motivation.",
                 "what is the scope for my child": "in the current scenario there are numerous scope available to each and everyone, just have to identify the right path.",
                 "how do i work upon my weaknesses": "everyone has some or the other weakness, but we should not let them hinder our growth. Just accept your weakness and work upon it to find alternatives.",
-                "why is their unemployment in  youth": "Could be due to various reasons like skill mismatch, lack of vocational training, decent work deficit etc.",
-                "what are the latest trends in career": "Ai, Diversity inclusion, automation etc",
-                "what Kind of Career does my subject  combinations prepare me  for": "depends on which subject you are most intrigued by and what are the career options available in that. Do you want to explore further.",
-                "what skills  are essential for todays job industry": "Some skills are inborn whereas some can be  developed, in todays job industry recruiters prefer communication skill, people who are self motivated, know their job really well, problem solvers and those who can adapt to any situation.",
+                "why is their unemployment in  youth": "could be due to various reasons like skill mismatch, lack of vocational training, decent work deficit etc.",
+                "what are the latest trends in career": "ai, diversity inclusion, automation etc",
+                "what Kind of career does my subject  combinations prepare me  for": "depends on which subject you are most intrigued by and what are the career options available in that. do you want to explore further.",
+                "what skills  are essential for todays job industry": "some skills are inborn whereas some can be  developed, in todays job industry recruiters prefer communication skill, people who are self motivated, know their job really well, problem solvers and those who can adapt to any situation.",
                 "what kind of job/career will suit my personality": "it depends on what is your aptitude, interests and personality traits. Psychometric testing can tell you what skills you have, so you can decide further.",
                 "how is my aptitude and interest correlated": "aptitude will tell you what skills you possess which can be improved upon by appropriate training and interest will tell you how you can put those skills in use for personal career growth.",
-                "what are the areas  my child  can opt for": "Heart surgeon, computer engineer, architect, bank manager, health and wellbeing officer, central government employee anything that is in line with your childs aptitude and interests.",
-                "what is employability": "Skills and abilities that allow you to be employed for life.",
+                "what are the areas  my child  can opt for": "heart surgeon, computer engineer, architect, bank manager, health and wellbeing officer, central government employee anything that is in line with your childs aptitude and interests.",
+                "what is employability": "skills and abilities that allow you to be employed for life.",
                 "what are employability skills": "job based specific skills, traits, characteristics one should have to become employed",
-                "how can i be different from my contenders": "qualities you posses that make you stand out in the crowd, that makes you special and unique. Everyone has special qualities that make him/her different from the crowd, a counselor can help you identify and build upon you special qualities and help you make them your most priced assets.",
+                "how can i be different from my contenders": "qualities you posses that make you stand out in the crowd, that makes you special and unique. everyone has special qualities that make him/her different from the crowd, a counselor can help you identify and build upon you special qualities and help you make them your most priced assets.",
                 "how do i manage time for upcoming competitive exams": "setting priorities and removing distractions.",
-                "what do interviewers ask": "Interviewers typically ask a variety of questions to assess your skills, experience, and fit for the position.",
-                "how do i prepare for interviews": "self awareness involving SWOT analysis of self, projecting your weakness as something you are working on and improving upon. in-depth knowledge about you field of interest.",
+                "what do interviewers ask": "interviewers typically ask a variety of questions to assess your skills, experience, and fit for the position.",
+                "how do i prepare for interviews": "self awareness involving swOt analysis of self, projecting your weakness as something you are working on and improving upon. in-depth knowledge about you field of interest.",
                 "what should i focus upon to achieve my goal": "focus upon your motivations, mindset etc",
-                "what are some prospective career paths that  go with my interests and values": "Heart surgeon, computer engineer, architect, bank manager, health and wellbeing officer, central government employee anything that is in line with your childs aptitude and interests.",
-                "what are job search resources": "They are platforms which bring all the recruiters and workers on a common platform like Linkedin, indeed, Alumni etc ",
+                "what are some prospective career paths that  go with my interests and values": "heart surgeon, computer engineer, architect, bank manager, health and wellbeing officer, central government employee anything that is in line with your childs aptitude and interests.",
+                "what are job search resources": "they are platforms which bring all the recruiters and workers on a common platform like Linkedin, indeed, alumni etc ",
                 "how can i get first hand knowledge of my career": "By talking to a person already in the field. counselor can provide you orientation about the field.",
                 "balance my career goals with personal interests": "You’ll be able to learn at your own pace from anywhere with an internet connection and gain hands-on experience working with the skills you’re learning.",
                 "some options for further education or training to enhance my career prospects": "Further education represents a significant investment in your personal and economic future, offering the necessary skills and qualifications to thrive in a competitive job market.",
-                "earning potential and negotiate salary": "Employment Opportunities: Further education often leads to improved employability, giving you access to a wider range of job openings.",
-                "what happens in career counseling": " Career counseling the goal of assisting people in making adequately informed professional decisions.",
-                "do my child have to appear for test": "To get a holistic idea about his/her development your child might need to undergo a psychometric test, which are normal paper pencil test and needs no prior learning.",
-                "why not subject teacher tell about career": "Subject teachers definitely can help a child regarding his/her career decisions but it becomes subject specific as the teachers is an expert in their own subject. A career counselor has information of all the careers. ",
+                "earning potential and negotiate salary": "employment Opportunities: Further education often leads to improved employability, giving you access to a wider range of job openings.",
+                "what happens in career counseling": " career counseling the goal of assisting people in making adequately informed professional decisions.",
+                "do my child have to appear for test": "to get a holistic idea about his/her development your child might need to undergo a psychometric test, which are normal paper pencil test and needs no prior learning.",
+                "why not subject teacher tell about career": "subject teachers definitely can help a child regarding his/her career decisions but it becomes subject specific as the teachers is an expert in their own subject. a career counselor has information of all the careers. ",
                 "how genuine is career counseling": "certified career counselors provide one-on-one sessions that are customized to your specific requirements, whether you are a student or adult. it is a supportive process to push ones interests and aptitude in the right direction.",
                 "what are career search process": " career counseling is that it is a systematic process designed to help people search and identify the right professional path.",
-                "do i pursue my own interest or choose my parents interest ": "Choose a career that aligns with your own interest and skills. Take help and support from parents.",
-                "what can i do if i take up math's/english/physics/chemistry/psychology etc.": "Government, Finance, foreign ministry, interpreter, iSRO to name a few. Career counselor will be providing information in detail after complete assessment.",
+                "do i pursue my own interest or choose my parents interest ": "choose a career that aligns with your own interest and skills. take help and support from parents.",
+                "what can i do if i take up math's/english/physics/chemistry/psychology etc.": "Government, Finance, foreign ministry, interpreter, isRO to name a few. career counselor will be providing information in detail after complete assessment.",
                 "need": "to receive guidance and support in various areas including career exploration, goal setting",
                 "importance": "a process in which a trained professional helps individuals identify their career goals and overcome any challenges that may hinder their success.",
                 "requirement": "a process in which a trained professional helps individuals identify their career goals and overcome any challenges that may hinder their success.",
-                "options": "CA, Psychologist, HR, IITetc",
+                "options": "ca, Psychologist, hR, iitetc",
                 "employment": "the occupations in which people work for others and get remunerated in return",
                 "interview": "a formal conversation between two or more people, usually with one person asking questions and the other providing answers",
                 "skills": "individual's ability to perform a specific task or solve a problem at a high level of proficiency.",
-                "subject selection": "This is a crucial decision for students entering higher grades, as it can impact their academic journey, future careers, and overall happiness",
-                "own goal": "If you want your child to follow their resolutions without fail, show them how it is done by doing it yourself.",
+                "subject selection": "this is a crucial decision for students entering higher grades, as it can impact their academic journey, future careers, and overall happiness",
+                "own goal": "if you want your child to follow their resolutions without fail, show them how it is done by doing it yourself.",
                 "psychometric": "is a diagnosis tool used to identify and explore the strengths of the student and find out the most suitable career path",
-                "psychological tests": "A psychometric career assessment test evaluates an individual's personality, aptitudes, interests, and skills to determine suitable career paths.",
+                "psychological tests": "a psychometric career assessment test evaluates an individual's personality, aptitudes, interests, and skills to determine suitable career paths.",
                 "parents pressure": "Parental pressure is an emotional stress that parents place on their children, and it is frequently associated with academic success.",
-                "science subject requirements": "The eligible criteria for the PCMB subjects in class 11 are one should qualify in their 10th standard with a minimum pass percentage of above 75",
-                "changing job market": "In such a time, employers are looking for people who can evolve with the ever-growing and rapidly changing patterns of today.",
-                "possibilities": "Whether you're searching for a job for the first time or are interested in changing careers, it's important to understand what your options are.",
-                "potential": "Whether you're searching for a job for the first time or are interested in changing careers, it's important to understand what your options are.",
-                "interest": "Interest is a feeling or emotion that causes attention to focus on an object, event, or process",
+                "science subject requirements": "the eligible criteria for the PcMB subjects in class 11 are one should qualify in their 10th standard with a minimum pass percentage of above 75",
+                "changing job market": "in such a time, employers are looking for people who can evolve with the ever-growing and rapidly changing patterns of today.",
+                "possibilities": "whether you're searching for a job for the first time or are interested in changing careers, it's important to understand what your options are.",
+                "potential": "whether you're searching for a job for the first time or are interested in changing careers, it's important to understand what your options are.",
+                "interest": "interest is a feeling or emotion that causes attention to focus on an object, event, or process",
                 "values": "a moral, social, or aesthetic principle accepted by an individual or society as a guide to what is good, desirable",
-                "humanities": "After 12th humanities, career options include journalism, law, psychology (counseling, clinical), social work, teaching, public relations",
-                "motivation": " It is the driving force behind human actions.",
+                "humanities": "after 12th humanities, career options include journalism, law, psychology (counseling, clinical), social work, teaching, public relations",
+                "motivation": " it is the driving force behind human actions.",
                 "job search": " find open positions",
                 "reliable": "a good counseling environment",
-                "preparation": "Prepare for a Job Interview",
-                "teacher": "teachers can contribute to student career guidance journey. Empower students' career decisions",
-                "helpful": "Career guidance helps us to reflect on our interests, ambitions, abilities, qualifications, etc",
+                "preparation": "Prepare for a Job interview",
+                "teacher": "teachers can contribute to student career guidance journey. empower students' career decisions",
+                "helpful": "career guidance helps us to reflect on our interests, ambitions, abilities, qualifications, etc",
                 "well informed": "programs designed to empower them with the training and resources",
-                "informed decision making": " A teacher can conduct an intervention with the student and guide him or her to the career counsellor as the need arises.",
-                "career counseling": "Career counsellors equip students with detailed insights into diverse career paths, encompassing educational prerequisites, job prospects",
-                "counseling": "Career counsellors equip students with detailed insights into diverse career paths, encompassing educational prerequisites, job prospects",
-                "test": "A psychometric career assessment test evaluates an individual's personality, aptitudes, interests, and skills to determine suitable career paths",
-                "career counsellor": "Career counsellors equip students with detailed insights into diverse career paths, encompassing educational prerequisites, job prospects",
+                "informed decision making": " a teacher can conduct an intervention with the student and guide him or her to the career counsellor as the need arises.",
+                "career counseling": "career counsellors equip students with detailed insights into diverse career paths, encompassing educational prerequisites, job prospects",
+                "counseling": "career counsellors equip students with detailed insights into diverse career paths, encompassing educational prerequisites, job prospects",
+                "test": "a psychometric career assessment test evaluates an individual's personality, aptitudes, interests, and skills to determine suitable career paths",
+                "career counsellor": "career counsellors equip students with detailed insights into diverse career paths, encompassing educational prerequisites, job prospects",
                 "how can career counseling help someone considering a mid-life career change": "career counseling can provide valuable insights by helping individuals assess their skills, interests, and values, which may have evolved over time. it can also assist in identifying transferable skills, exploring new career paths, and setting realistic goals to make a smooth transition.",
                 "what role does career counseling play in navigating career setbacks": "career counseling can offer support by helping individuals reframe setbacks as learning opportunities, developing strategies for overcoming challenges, and setting new career goals. counselors can also provide resources and techniques for building resilience and managing stress.",
                 "how does career counseling address the needs of individuals with non-traditional career paths": "career counseling for non-traditional career paths focuses on validating diverse experiences and skills, exploring unconventional job markets, and developing personalized strategies for career growth. counselors can help individuals leverage their unique backgrounds and interests to find fulfilling career opportunities.",
@@ -228,7 +228,30 @@
                 "what is the role of career counseling in managing career transitions, such as promotions or lateral moves": "career counseling can help individuals navigate career transitions by providing support in understanding the new role's requirements, setting goals, and developing skills necessary for success. counselors can also assist in managing any challenges related to adapting to a new position or department.",
                 "how can career counseling help individuals with unique or niche career interests": "career counseling can help by exploring and validating unique or niche career interests, identifying potential job opportunities, and connecting individuals with relevant networks and resources. counselors can assist in creating a tailored career strategy and addressing any specific challenges related to pursuing a specialized field.",
                 "what strategies do career counselors use to help clients with career goals that seem unrealistic": "career counselors use strategies such as breaking down large goals into smaller, achievable steps, assessing the feasibility of the goals, and developing action plans. they may also help clients adjust their expectations, explore alternative paths, and build the skills and resources needed to work towards their goals.",
-                // Add more responses as needed
+                "what is the national defence academy (nda)": "the national defence academy (nda) is a joint services academy of the indian armed Forces, where cadets of the army, navy, and air Force are trained together before they go on to respective service academies for further training.",
+                "where is the nda located": "the nda is located in Khadakwasla, near Pune, Maharashtra, india.",
+                "what is the eligibility criteria for nda?": "the eligibility criteria for nda include being an unmarried male or female indian citizen, aged between 16.5 to 19.5 years, and having completed or appearing in the 10+2 examination. For the air Force and naval wings, candidates must have studied Physics and Mathematics in their 10+2.",
+                "how is the nda entrance exam conducted?": "the nda entrance exam is conducted by the Union Public service commission (UPsc) twice a year. it consists of a written examination followed by an interview conducted by the services selection Board (ssb).",
+                "what subjects are covered in the nda written examination?": "the nda written examination includes two papers: Mathematics and General ability test (Gat). the Gat covers english, General Knowledge, Physics, chemistry, General science, history, Geography, and current events.",
+                "what is the selection process for nda?": "the selection process for nda involves a written examination, followed by an ssb interview that includes psychological tests, group tasks, and a personal interview. successful candidates must also pass a medical examination.",
+                "what kind of training do cadets undergo at nda?": "cadets at nda undergo rigorous academic, physical, and military training. this includes leadership training, drills, physical conditioning, and education in a variety of subjects to prepare them for their roles as officers in the armed Forces.",
+                "what degree do cadets receive upon graduating from nda?": "Upon graduating from nda, cadets are awarded a Bachelor's degree in arts, science, or computer science from Jawaharlal nehru University (JnU).",
+                "what happens after graduating from nda?": "after graduating from nda, cadets proceed to their respective service academies: indian Military academy (iMa) for the army, indian naval academy (ina) for the navy, and air Force academy (aFa) for the air Force, for further specialized training.",
+                "can women join the nda?": "Yes, as of recent updates, women are allowed to join the nda and undergo the same training as their male counterparts.",
+                "nda": "the national defence academy (nda) is a joint services academy of the indian armed Forces, where cadets of the army, navy, and air Force are trained together before they go on to respective service academies for further training.",
+                "what are the main entry points to join the indian army?": "the main entry points to join the indian army include entry through the National Defence academy (nda), combined Defence services (cds), technical entry scheme (tes), University entry scheme (Ues), and through recruitment rallies for soldiers.",
+                "how can one join the indian army through the nda?": "to join the indian army through the nda, candidates must pass the nda entrance exam conducted by UPsc, followed by the services selection Board (ssb) interview, and a medical examination. successful candidates then undergo training at nda before joining the indian Military academy (iMa).",
+                "what is the cds exam, and how does it help in joining the indian army?": "the combined Defence services (cds) exam is conducted by UPsc for graduates who wish to join the indian army, Navy, or air Force. candidates who clear the written exam, ssb interview, and medical examination join the indian Military academy (iMa) for officer training.",
+                "what is the technical entry scheme (tes) for joining the indian army?": "the technical entry scheme (tes) is for candidates who have completed their 10+2 with Physics, chemistry, and Mathematics. eligible candidates are directly called for the ssb interview based on their 10+2 marks, and successful candidates join the indian Military academy (iMa) for officer training.",
+                "can engineering graduates join the indian army?": "Yes, engineering graduates can join the indian army through the technical Graduate course (tGc) or University entry scheme (Ues). these are direct entry schemes where candidates are called for the ssb interview based on their academic performance.",
+                "how can a person join the indian army as a soldier?": "to join the indian army as a soldier, candidates must participate in recruitment rallies conducted by the army across the country. they must clear physical fitness tests, a written examination, and a medical examination to be selected.",
+                "is there a way for women to join the indian army?": "Yes, women can join the indian army as officers through the short service commission (ssc), which is available for graduates and postgraduates. women can also join through the cds exam and the Ncc special entry scheme.",
+                "what is the age limit to join the indian army?": "the age limit to join the indian army varies depending on the entry scheme. For nda, it is 16.5 to 19.5 years; for cds, it is 19 to 24 years; for tes, it is 16.5 to 19.5 years; and for direct entry schemes like tGc, it is up to 27 years.",
+                "what is the role of the ssb interview in the selection process?": "the services selection Board (ssb) interview is a crucial part of the selection process for officers in the indian army. it assesses a candidate's leadership qualities, mental acuity, personality, and suitability for a career in the armed Forces through various psychological tests, group tasks, and a personal interview.",
+                "what are the educational qualifications required to join the indian army?": "the educational qualifications vary depending on the entry scheme. For nda, candidates must have completed 10+2; for cds, a graduate degree is required; for tes, 10+2 with PcM; and for tGc, a Be/B.tech degree.",
+                "cds": "the combined Defence services (cds) exam is conducted by UPsc for graduates who wish to join the indian army, Navy, or air Force. candidates who clear the written exam, ssb interview, and medical examination join the indian Military academy (iMa) for officer training.",
+                "agniveer": "the agniveer scheme, part of the agnipath recruitment initiative, is a new entry pathway for youth to serve in the indian armed Forces, including the army, for a period of four years as agniveers.",
+                // add more responses as needed
             };
 
             return responses[userinput] || responses["default"];
