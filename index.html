@@ -120,25 +120,25 @@
     <script>
         alert("welcome to career counseling chatbot!\ni'm here to help you explore your career options and answer any questions you may have. what's on your mind today?")
         function sendMessage() {
-            var userinput = document.getelementByid('user-input').value.trim().toLowercase();
-            var chathistory = document.getelementByid('chat-history');
+            var userinput = document.getElementById('user-input').value.trim().toLowerCase();
+            var chatHistory = document.getElementById('chat-history');
 
-            // clear user input
-            document.getelementByid('user-input').value = '';
+            // Clear user input
+            document.getElementById('user-input').value = '';
 
-            // display user message
-            var userMessage = document.createelement('p');
-            userMessage.textcontent = 'You: ' + userinput;
-            chathistory.appendchild(userMessage);
+            // Display user message
+            var userMessage = document.createElement('p');
+            userMessage.textContent = 'You: ' + userinput;
+            chatHistory.appendChild(userMessage);
 
             // Get and display bot response
             var botResponse = getBotResponse(userinput);
-            var botMessage = document.createelement('p');
-            botMessage.textcontent = 'Bot: ' + botResponse;
-            chathistory.appendchild(botMessage);
+            var botMessage = document.createElement('p');
+            botMessage.textContent = 'Bot: ' + botResponse;
+            chatHistory.appendChild(botMessage);
 
-            // scroll to bottom of chat history
-            chathistory.scrolltop = chathistory.scrollheight;
+            // Scroll to bottom of chat history
+            chatHistory.scrollTop = chatHistory.scrollHeight;
         }
 
         function getBotResponse(userinput) {
